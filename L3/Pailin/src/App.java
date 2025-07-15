@@ -3,11 +3,21 @@ import java.util.Scanner;
 class Palindrome {
     private String word;
     public Palindrome(String str) {
+        
         this.word = str;
     }
     int isPalindrome() {
-        StringBuilder sb = new StringBuilder(word);
-        int ret = word.equals(sb.reverse().toString()) ? 1 : 0;
+        int i = 0; 
+        String temp = "";
+        while (i < word.length()) {
+            char ch = word.charAt(i);
+            if (Character.isLetter(ch)) {
+                temp += Character.toLowerCase(ch);
+            }
+            i++;
+        }
+        StringBuilder sb = new StringBuilder(temp);
+        int ret =  temp == sb.reverse().toString() ? 0 : 1;
         return ret;
     }
 }
